@@ -1,0 +1,57 @@
+body {
+  padding: 50px;
+}
+
+.box {
+  display: inline-block;
+  background: pink;
+  width: 200px;
+  height: 200px;
+  transition: transform 500ms cubic-bezier(0, 0.47, 0.32, 1.97), background 500ms ease-in-out;
+  pointer-events: none;
+
+  &.framing {
+    animation-name: myframes;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+}
+
+.trigger {
+  width: 200px;
+  height: 200px;
+  border: 20px solid #999;
+  background: #ddd;
+
+  &:hover {
+    .box {
+      transform: translate(200px, 150px) rotate(20deg);
+    }
+  }
+
+  &.clicked {
+    .box {
+      background: aqua;
+    }
+  }
+}
+
+@keyframes myframes {
+  0% {
+    height: 200px;
+  }
+
+  30%, 70% {
+    height: 400px;
+  }
+
+  100% {
+    height: 600px;
+    background: orange;
+  }
+}
